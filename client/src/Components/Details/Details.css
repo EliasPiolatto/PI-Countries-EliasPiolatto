@@ -1,0 +1,93 @@
+.detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    color:black;
+    text-shadow: 1px 1px blue;   
+}
+
+.imgDetail {
+    transform: scale(1.5);
+    padding: 0px;
+}
+
+.info {
+    background: rgba(90, 177, 228);
+    border: solid 1px black;
+    box-sizing: content-box;
+    padding: 10px;
+    text-decoration: underline;
+}
+
+.activ {
+    margin-top: 10px;   
+}
+.activ h3 {
+    transform: scale(1.5);
+    background: rgba(33, 32, 32, 0.9);
+    padding: 5px;
+    color: whitesmoke;
+    text-shadow: 2px 1px rgb(210, 100, 100);
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 180px;
+
+}
+
+th, td {
+    border: solid 2px black;
+    padding: 5px;
+}
+
+th {
+    background: rgba(33, 32, 32, 0.9);
+    color:rgb(252, 246, 246);
+    text-shadow: 1px 3px blue;
+}
+
+tr:nth-child(even) {
+    background: rgb(90, 177, 228);
+    color:rgb(0, 0, 0);
+    text-shadow: 1px 1px tomato;
+}
+
+tr:nth-child(odd) {
+    background: rgb(7, 121, 186);
+    color:rgb(0, 0, 0);
+    text-shadow: 1px 1px tomato;
+}
+
+
+.btnDet {
+    display: flex;
+    position: relative;
+    top: 50px;
+    left: 950px;
+    transform: scale(1.8);
+    border-radius: 8px;
+    font-weight: bold;
+    background: rgb(138, 180, 233);
+    padding: 3px;
+}
+
+.btnDet:hover {
+    background-color: rgb(36, 36, 36);
+    color: whitesmoke;
+    text-shadow: 2px 1px rgb(210, 100, 100);
+    border-color: rgb(6, 87, 6);
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.tableList {
+    margin-top: 100px;
+}

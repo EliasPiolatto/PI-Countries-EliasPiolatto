@@ -1,0 +1,26 @@
+.landing {
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    background: rgba(13, 94, 138, 0.3);
+    color: black;
+    text-shadow: 2px 1px rgb(210, 100, 100);
+}
+
+.button {
+    background-color: black;
+    color:rgb(210, 100, 100);
+    border: 2px solid rgb(103, 34, 90);
+    border-radius: 50%;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer; 
+    transition: 0.8s; 
+}
+
+.button:hover {
+    background-color: rgb(46, 46, 46);
+    color: rgb(225, 15, 50);
+    transform: scale(1.2);
+    
+}

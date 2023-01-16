@@ -1,0 +1,27 @@
+.cards{
+    background: rgba(26, 25, 25, 0.9);
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 2px 2px blue;
+    margin: 20px;
+}
+
+.cards h3 {
+    color: antiquewhite;
+    text-shadow: 1px 2px blue;
+    
+}
+
+.cards img {
+    border-radius: 15px;
+    border: solid 2px rgb(112, 106, 106);
+    
+}
+
+.cards img:hover {
+    transition: 0.8s;
+    transform: scale(1.2);
+    box-shadow: 2px 2px whitesmoke;
+    border: solid 3px black;
+}
