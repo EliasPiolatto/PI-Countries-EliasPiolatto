@@ -18,5 +18,17 @@ describe('Country model', () => {
         Country.create({ name: 'Argentina' });
       });
     });
+
+
+
+    describe('id', () => {
+      it('should throw an error if the id is not a STRING', (done) => {
+        Country.create({
+          id: !String
+        })
+          .then(() => done('should not be created'))
+          .catch(() => done())
+      })
+    });
   });
 });
