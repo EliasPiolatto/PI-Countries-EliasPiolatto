@@ -20,8 +20,8 @@ describe('Country model', () => {
     });
 
 
-
-    describe('id', () => {
+//Arroja error si no recibe un string como id...
+    describe('id STRING', () => {
       it('should throw an error if the id is not a STRING', (done) => {
         Country.create({
           id: !String
