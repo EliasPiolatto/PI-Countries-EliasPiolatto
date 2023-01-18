@@ -4,7 +4,7 @@ import './Paginated.css';
 
 export default function Paginated({allCountries, countriesPage, paginatedNum, currPage}) {
 
-    let pagin = Math.ceil(currPage===1 ? (allCountries.length - countriesPage)/countriesPage -1 : allCountries.length/countriesPage +1);
+    let pagin = Math.ceil(currPage===1 ? (allCountries.length - countriesPage)/countriesPage -(10-countriesPage) : allCountries.length/countriesPage + 0.1);
 
     let pagesNumber = [];
     
