@@ -7,6 +7,7 @@ import { orderBy } from "../../Redux/actions/orderBy";
 import { filterAct, filterContinent } from "../../Redux/actions/filters";
 import SearchBar from "../Search/SearchBar";
 import './divsHome.css'
+import setError from "../../Redux/actions/setError";
 
 
 
@@ -19,9 +20,10 @@ export default function Home(){
     
     const [currPage, setCurrPage] = useState(1);
     const [countriesPage, setCountriesPage] = useState(9);
-    const lastCountry = currPage * countriesPage;
+    const lastCountry = currPage===1 ? currPage * countriesPage : currPage * countriesPage -1;
     const firstCountry = lastCountry - countriesPage;
     const currCountries = allCountries.slice(firstCountry, lastCountry);
+
     
     function paginatedNum(pageNum){
             setCurrPage(pageNum);
@@ -51,7 +53,7 @@ export default function Home(){
         setCurrPage(1);
     };
 
-    function onClick(){
+    function onClickRestore(){
         dispatch(getCountries());
         setCountriesPage(9);
         setCurrPage(1);
@@ -59,7 +61,12 @@ export default function Home(){
 
 
 
+const error = useSelector((state)=> state.error);
 
+useEffect(()=>{
+  if(error !== '') alert(error);
+  dispatch(setError(''))
+}, [error]);
 
     return (
       <div className="divsHome">
@@ -95,7 +102,7 @@ export default function Home(){
               <option value='minPop'>Order Min. pop. ▲</option>
             </select>
                 
-            <button className="restore" onClick={()=>onClick()}>Restore</button>
+            <button className="restore" onClick={()=>onClickRestore()}>Restore</button>
           </div>
 
           <div>
@@ -106,12 +113,14 @@ export default function Home(){
               allCountries={allCountries}
               countriesPage={countriesPage}
               paginatedNum={paginatedNum}
+              currPage={currPage}
             />
           </div>
             
           <div>
             <ContainerCards countries={currCountries}/>
-          </div>      
+          </div> 
+
         </div>
       </div>
     )

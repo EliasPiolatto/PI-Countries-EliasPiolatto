@@ -1,31 +1,31 @@
-import { ORDER_BY, GET_COUNTRIES, GET_ACTIVITIES, FILTER_ACT, FILTER_CONTINENT, GET_BY_NAME, GET_BY_ID } from "../actions/constantes";
+import { ERROR, ORDER_BY, GET_COUNTRIES, GET_ACTIVITIES, FILTER_ACT, FILTER_CONTINENT, GET_BY_NAME, GET_BY_ID, SET_ERROR } from "../actions/constantes";
 
 let initialState = {
 allCountries: [],
 backupCountries: [],
 activities: [],
-detail: []
+detail: [],
+error: ''
 };
-
-
 
 
 export default function rootReducer(state = initialState, action){
     switch(action.type){
-
+        
         case GET_COUNTRIES:
             return {
                 ...state,
                 allCountries: action.payload,
                 backupCountries: action.payload
             };
-
+            
         case GET_BY_NAME:
+
             return {
                 ...state,
                 allCountries: action.payload
             };
-
+                
         case GET_BY_ID:
             return {
                 ...state,
@@ -103,15 +103,23 @@ export default function rootReducer(state = initialState, action){
 
                 conts = conts && action.payload === 'All' ? conts : conts.filter(el => el.continent === action.payload);
                 
-
             return {
                 ...state,
                 allCountries: conts
             };
         
+        case ERROR:
 
+            return {
+                ...state,
+                error: action.payload
+            }
 
-
+        case SET_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
 
 
         default: return state;

@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
 import axios from 'axios';
-import {GET_ACTIVITIES, GET_BY_ID, GET_BY_NAME, GET_COUNTRIES} from './constantes';
+import {ERROR, GET_ACTIVITIES, GET_BY_ID, GET_BY_NAME, GET_COUNTRIES} from './constantes';
 
 
 
@@ -17,12 +17,13 @@ export function getCountries(){
     } 
         
     } catch (error) {
-        return error;
+        console.log(error);
     }
 };
 
 
 export function getActivities(){
+    try {
     return async function(dispatch){
         return await axios.get('http://localhost:3001/activities')
         .then(resp => {
@@ -32,28 +33,36 @@ export function getActivities(){
             })
         })
     }
+        
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 
 export function getByName(name){
-    try {
     return async function(dispatch){
+        try {
         return await axios.get(`http://localhost:3001/countries?name=${name}`)
         .then(resp => {
             dispatch({
                 type: GET_BY_NAME,
                 payload: resp.data
             })
-        }) 
-    }
-        
+        })
     } catch (error) {
-       alert(error);
+      console.log(error);
+        return dispatch({
+          type: ERROR,
+          payload: error.response.data.message
+        });
+      }
     }
 };
 
 
 export function getByID(id){
+    try {
     return async function(dispatch){
         return await axios.get(`http://localhost:3001/countries/${id}`)
         .then(resp => {
@@ -62,6 +71,9 @@ export function getByID(id){
                 payload: resp.data
             })
         })
+    }  
+    } catch (error) {
+        console.log(error); 
     }
 };
 

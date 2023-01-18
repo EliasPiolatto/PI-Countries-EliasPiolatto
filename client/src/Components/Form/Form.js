@@ -17,7 +17,7 @@ function validateForm(input){
 export default function Form() {
 
     const dispatch = useDispatch();
-    const countries = useSelector((state)=> state.backupCountries).sort((a, b) => {
+    const allCountries = useSelector((state)=> state.backupCountries).sort((a, b) => {
       if(a.name < b.name){
           return -1;
       }
@@ -30,6 +30,7 @@ export default function Form() {
   useEffect(()=>{
     dispatch(getCountries());
   },[dispatch]);
+
 
     const [input, setInput] = useState({
         name: '',
@@ -58,7 +59,7 @@ export default function Form() {
 
     
     function handleSelectCountry(e) {
-      if(!input.countries.includes(e.target.value)){
+      if(!input.countries.includes(e.target.value)) {
         
         setInput({
           ...input,
@@ -101,7 +102,6 @@ export default function Form() {
       })
     };
 
-console.log(input);
 
 
     const difficulty = [1, 2, 3, 4, 5];
@@ -177,9 +177,9 @@ console.log(input);
             <div className='country'>
               <label>Country </label>
               <select name='countries' required onChange={(e)=> handleSelectCountry(e)}>
-                <option value='' hidden>Select country</option>
+                <option value='' hidden >Select country</option>
                 {
-                  countries.map(c => (
+                  allCountries.map(c => (
                     <option value={c.name} key={c.id} >{c.name}</option>
                   ))
                 }

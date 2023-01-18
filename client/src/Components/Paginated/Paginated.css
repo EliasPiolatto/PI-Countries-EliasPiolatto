@@ -8,12 +8,12 @@
     
 }
 
-.paging a {
+.paging button {
     justify-content: space-between;  
 
     background-color: rgba(0, 0, 0, 0.8);
     color: rgb(210, 100, 100);
-    text-shadow: 2px 1px whitesmoke;
+    text-shadow: 1px 1px whitesmoke;
     margin: 1px;
     padding: 5px;
     border-radius: 15px;
@@ -23,9 +23,20 @@
 }
 
 
-.paging a:hover {
+.paging button:hover {
     transform: scale(1.5);
     background-color: rgba(0, 0, 0, 1);
+}
+
+.spanCurr {
+    background-color: rgb(210, 100, 100);
+    color: black;
+    text-shadow: 1px 1px whitesmoke;
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-weight: bold;
+    transform: scale(2);
 }
 
 
